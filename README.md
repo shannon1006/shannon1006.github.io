@@ -1,3 +1,3 @@
 # shannonwang.site
 
-My first personal website using node.js and React.js
+My first personal website using React.js
