@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom';
 import SplitPane from 'react-split-pane';
 import './index.css';
 import Background from './Background.js';
+import MainContent from './MainContent';
 
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <SplitPane split="vertical" minSize={50} defaultSize={600}>
-     <Background />
-     <div>dfds</div>
- </SplitPane>, document.getElementById('root'))
+  <SplitPane split = "vertical" defaultSize="65%">
+      <MainContent />
+      <Background />
+  </SplitPane>, document.getElementById('root'))
 //ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
