@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "radium": "^0.25.1",
     "react": "^16.8.4",
     "react-background-image": "^1.2.0",
+    "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
+    "react-scroll": "^1.7.11",
     "react-sidebar": "^3.0.2",
     "react-split-pane": "^0.1.85"
   },
