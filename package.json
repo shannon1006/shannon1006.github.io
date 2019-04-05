@@ -8,15 +8,11 @@
     "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "radium": "^0.25.1",
     "react": "^16.8.4",
-    "react-background-image": "^1.2.0",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.4",
     "react-scripts": "2.1.8",
-    "react-scroll": "^1.7.11",
-    "react-sidebar": "^3.0.2",
-    "react-split-pane": "^0.1.85"
+    "react-scroll": "^1.7.11"
   },
   "scripts": {
     "start": "react-scripts start",

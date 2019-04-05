@@ -17,13 +17,16 @@ const styles = {
   largeImg: {
     transform: 'scale(0.9)',
     transition: "all 0.1s ease-in",
-    backgroundColor: '#000',
+    backgroundColor: 'black',
     opacity: '0.5',
   },
   smallImg: {
     transform: 'scale(0.8)',
     transition: "all 0.1s ease-in",
   },
+  profile: {
+    width: "100%",
+  }
 };
 
 class Profile extends React.Component {
@@ -43,17 +46,27 @@ class Profile extends React.Component {
   }
 
   render() {
-    var dynamicStyle = styles.smallImg;
+    var dynamicStyleImage = styles.smallImg;
+    var dynamicStyleText = {
+      textAlign: 'center',
+      color: 'gray'
+    };
     if (this.state.hover) {
-      dynamicStyle = styles.largeImg;
+      dynamicStyleImage = styles.largeImg;
+      dynamicStyleText.textDecoration = 'underline';
     } else {
-      dynamicStyle = styles.smallImg;
+      dynamicStyleImage = styles.smallImg;
+      dynamicStyleText.textDecoration = 'none';
     }
     return (
-      <Image src={this.props.source} roundedCircle fluid
-        onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}
-        style={dynamicStyle}
-      />);
+      <div style={styles.profile} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
+        <Image src={this.props.source} roundedCircle fluid
+          style={dynamicStyleImage} />
+        <h5 style={dynamicStyleText}>
+          something
+        </h5>
+      </div>
+    );
   }
 }
 
