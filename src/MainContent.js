@@ -10,42 +10,71 @@ import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
-import Radium from 'radium';
-
 const styles = {
   row: {
-    padding: '30px'
+    padding: '50px 30px 30px 30px'
   },
-  col: {
-
+  largeImg: {
+    transform: 'scale(1.15)',
+    transition: "all 0.1s ease-in",
   },
-  profileImage: {
-
-  }
+  smallImg: {
+    transform: 'scale(1.0)',
+    transition: "all 0.1s ease-in",
+  },
 };
 
-class MainContent extends React.Component {
+class Profile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onMouseOver = this.onMouseOver.bind(this);
+    this.onMouseOut = this.onMouseOut.bind(this);
+    this.state = {hover: false};
+  }
 
-  renderImage(imgSrc) {
-    return <Image src={imgSrc} roundedCircle fluid style={styles.profileImage}/>
+  onMouseOver() {
+    this.setState({hover: true});
+  }
+
+  onMouseOut() {
+    this.setState({hover: false});
   }
 
   render() {
-    return(
-      <Container>
-        <Row style={styles.row}>
-          <Col>{this.renderImage(image1)}</Col>
-          <Col>{this.renderImage(image2)}</Col>
-          <Col>{this.renderImage(image3)}</Col>
-        </Row>
-        <Row style={styles.row}>
-          <Col>{this.renderImage(image4)}</Col>
-          <Col>{this.renderImage(image5)}</Col>
-          <Col>{this.renderImage(image6)}</Col>
-        </Row>
-      </Container>
-    );
+    var dynamicStyle = styles.smallImg;
+    if (this.state.hover) {
+      dynamicStyle = styles.largeImg;
+    } else {
+      dynamicStyle = styles.smallImg;
+    }
+    return (
+      <Image src={this.props.source} roundedCircle fluid
+        onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}
+        style={dynamicStyle}
+      />);
   }
 }
 
-export default Radium(MainContent)
+class MainContent extends React.Component {
+
+  render() {
+    const result = (
+      <Container>
+        <Row style={styles.row}>
+          <Col><Profile source={image1} /></Col>
+          <Col><Profile source={image2} /></Col>
+          <Col><Profile source={image3} /></Col>
+        </Row>
+        <Row style={styles.row}>
+          <Col><Profile source={image4} /></Col>
+          <Col><Profile source={image5} /></Col>
+          <Col><Profile source={image6} /></Col>
+        </Row>
+      </Container>
+    );
+
+    return(result);
+  }
+}
+
+export default MainContent

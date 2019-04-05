@@ -1,5 +1,7 @@
 import React from 'react';
-import {Element, Events, animateScroll as scroll} from 'react-scroll'
+import { Element, Events, scroller} from 'react-scroll'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faChevronDown} from '@fortawesome/free-solid-svg-icons'
 import MainContent from './MainContent';
 import imgUrl from "./images/background.jpg"
 
@@ -20,14 +22,18 @@ const styles = {
     top: '50%',
     left: '5%',
     textDecoration: 'underline',
+  },
+  button: {
+    color: 'white',
+    width: '3%',
+    height: 'auto',
+    position: 'absolute',
+    top: '91%',
+    left: '48%',
   }
 }
 
 class Section extends React.Component {
-  constructor(props) {
-    super(props);
-    this.scrollToTop = this.scrollToTop.bind(this);
-  }
 
   componentDidMount() {
     Events.scrollEvent.register('begin', function () {
@@ -39,8 +45,12 @@ class Section extends React.Component {
     });
   }
 
-  scrollToTop() {
-    scroll.scrollToTop();
+  scrollTo() {
+    scroller.scrollTo("content-start", {
+      duration: 800,
+      delay: 0,
+      smooth: 'true'
+    })
   }
 
   render() {
@@ -49,9 +59,10 @@ class Section extends React.Component {
         <Element  style={styles.landing}>
           <div>
             <h1 style={styles.header}>LANDING PAGE</h1>
+            <div onClick={() => this.scrollTo()}><FontAwesomeIcon icon={faChevronDown} style={styles.button} /></div>
           </div>
         </Element>
-        <Element><MainContent /></Element>
+        <Element name="content-start"><MainContent /></Element>
       </div>
     );
   }
