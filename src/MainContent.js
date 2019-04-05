@@ -11,15 +11,17 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 const styles = {
-  row: {
-    padding: '50px 30px 30px 30px'
+  firstRow: {
+    paddingTop: '15px',
   },
   largeImg: {
-    transform: 'scale(1.15)',
+    transform: 'scale(0.9)',
     transition: "all 0.1s ease-in",
+    backgroundColor: '#000',
+    opacity: '0.5',
   },
   smallImg: {
-    transform: 'scale(1.0)',
+    transform: 'scale(0.8)',
     transition: "all 0.1s ease-in",
   },
 };
@@ -60,12 +62,12 @@ class MainContent extends React.Component {
   render() {
     const result = (
       <Container>
-        <Row style={styles.row}>
+        <Row>
           <Col><Profile source={image1} /></Col>
           <Col><Profile source={image2} /></Col>
           <Col><Profile source={image3} /></Col>
         </Row>
-        <Row style={styles.row}>
+        <Row>
           <Col><Profile source={image4} /></Col>
           <Col><Profile source={image5} /></Col>
           <Col><Profile source={image6} /></Col>
