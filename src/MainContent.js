@@ -11,21 +11,26 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 
 const styles = {
-  firstRow: {
-    paddingTop: '15px',
-  },
   largeImg: {
-    transform: 'scale(0.9)',
+    transform: 'scale(0.8)',
     transition: "all 0.1s ease-in",
     backgroundColor: 'black',
     opacity: '0.5',
+    position: 'relative',
+    top: '-20px',
   },
   smallImg: {
-    transform: 'scale(0.8)',
+    transform: 'scale(0.7)',
     transition: "all 0.1s ease-in",
+    position: 'relative',
+    top: '-20px',
   },
   profile: {
     width: "100%",
+  },
+  secondRow: {
+    position: 'relative',
+    top: '-40px',
   }
 };
 
@@ -49,21 +54,28 @@ class Profile extends React.Component {
     var dynamicStyleImage = styles.smallImg;
     var dynamicStyleText = {
       textAlign: 'center',
-      color: 'gray'
+      fontFamily: "Poppins",
+      fontWeight: "thin",
+      position: "relative",
+      top: '-50px',
     };
     if (this.state.hover) {
       dynamicStyleImage = styles.largeImg;
       dynamicStyleText.textDecoration = 'underline';
+      dynamicStyleText.color = 'black';
+      dynamicStyleText.weight = 'bold';
     } else {
       dynamicStyleImage = styles.smallImg;
       dynamicStyleText.textDecoration = 'none';
+      dynamicStyleText.color = 'gray';
+      dynamicStyleText.weight = 'thin';
     }
     return (
       <div style={styles.profile} onMouseOver={this.onMouseOver} onMouseOut={this.onMouseOut}>
         <Image src={this.props.source} roundedCircle fluid
           style={dynamicStyleImage} />
         <h5 style={dynamicStyleText}>
-          something
+          {this.props.title}
         </h5>
       </div>
     );
@@ -76,14 +88,14 @@ class MainContent extends React.Component {
     const result = (
       <Container>
         <Row>
-          <Col><Profile source={image1} /></Col>
-          <Col><Profile source={image2} /></Col>
-          <Col><Profile source={image3} /></Col>
+          <Col><Profile source={image1} title="Blog"/></Col>
+          <Col><Profile source={image2} title="Photos" /></Col>
+          <Col><Profile source={image3} title="Music" /></Col>
         </Row>
-        <Row>
-          <Col><Profile source={image4} /></Col>
-          <Col><Profile source={image5} /></Col>
-          <Col><Profile source={image6} /></Col>
+        <Row style={styles.secondRow}>
+          <Col><Profile source={image4} title="Fitness" /></Col>
+          <Col><Profile source={image5} title="Plans" /></Col>
+          <Col><Profile source={image6} title="Travel" /></Col>
         </Row>
       </Container>
     );

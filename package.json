@@ -29,5 +29,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "homepage": "https://shannonwang.site"
+  "homepage": "https://shannonwang.site",
+  "devDependencies": {
+    "react-social-icons": "^4.1.0"
+  }
 }
