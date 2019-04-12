@@ -8,11 +8,14 @@
     "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "react": "^16.8.4",
+    "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
-    "react-dom": "^16.8.4",
+    "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
-    "react-scroll": "^1.7.11"
+    "react-scroll": "^1.7.11",
+    "tar": "^4.4.8",
+    "typography": "^0.16.19",
+    "typography-plugin-code": "^0.16.19"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -50,6 +50,10 @@ class Profile extends React.Component {
     this.setState({hover: false});
   }
 
+  openProfile() {
+    console.log(this.source);
+  }
+
   render() {
     var dynamicStyleImage = styles.smallImg;
     var dynamicStyleText = {
@@ -88,7 +92,7 @@ class MainContent extends React.Component {
     const result = (
       <Container>
         <Row>
-          <Col><Profile source={image1} title="Blog"/></Col>
+          <Col><Profile source={image1} title="Blog" onClick={this.openProfile}/></Col>
           <Col><Profile source={image2} title="Photos" /></Col>
           <Col><Profile source={image3} title="Music" /></Col>
         </Row>
